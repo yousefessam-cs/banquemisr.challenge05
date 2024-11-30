@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "0e09c5a1-c556-40b7-b693-83f2118ef3cb",
+		"name": "Task Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17183884"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\":\"yousef1\",\r\n  \"password\": \"PAss@123\",\r\n  \"email\": \"testyousef33@gmail.com\",\r\n  \"role\": \"ADMIN\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/auth/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"testyousef33@gmail.com\",\r\n   \"password\": \"PAss@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "processInstanceId",
+									"value": "a4e7225d-a07a-11ef-ab92-2adfebc22db0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task Management",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0eW91c2VmMzNAZ21haWwuY29tIiwiaWF0IjoxNzMyOTY1ODg5LCJleHAiOjE3MzI5Njk0ODl9.-QybmxQa8ygYcRg7L3Oo9H4WuZKmePTgrjO9caxcA3k"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Last\",\r\n  \"description\": \"Last Test\",\r\n  \"priority\": \"HIGH\",\r\n  \"dueDate\": \"2024-12-01T22:30:19.426Z\",\r\n  \"status\": \"TODO\",\r\n  \"username\":\"yousef1\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/tasks/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0eW91c2VmMzMxQGdtYWlsLmNvbSIsImlhdCI6MTczMjk2NjYwOSwiZXhwIjoxNzMyOTcwMjA5fQ.mKwmhTsKS7-MXJ7M3xNWI7tSnk5l7NOH3ChFKYjdIGM"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/tasks/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0eW91c2VmMzNAZ21haWwuY29tIiwiaWF0IjoxNzMyOTY1ODg5LCJleHAiOjE3MzI5Njk0ODl9.-QybmxQa8ygYcRg7L3Oo9H4WuZKmePTgrjO9caxcA3k"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/tasks/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tasks ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0eW91c2VmMzNAZ21haWwuY29tIiwiaWF0IjoxNzMyOTY2NDcxLCJleHAiOjE3MzI5NzAwNzF9.52Gxux4nOgd0gY9kCcPfTs88dy65HdlPoaRrZLqUXmA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Admin Task",
+									"disabled": true
+								},
+								{
+									"key": "priority",
+									"value": "MEDIUM",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0eW91c2VmMzMxQGdtYWlsLmNvbSIsImlhdCI6MTczMjk2NjYwOSwiZXhwIjoxNzMyOTcwMjA5fQ.mKwmhTsKS7-MXJ7M3xNWI7tSnk5l7NOH3ChFKYjdIGM"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Monitoring the app\",\r\n  \"description\": \"Optmizing Performance\",\r\n  \"priority\": \"MEDIUM\",\r\n  \"dueDate\": \"2024-12-01T10:35:00\",\r\n  \"status\": \"IN_PROGRESS\",\r\n  \"username\":\"yousef1\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/tasks"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
